@@ -583,10 +583,20 @@ IMG_UPLOAD_URL = "/static/uploads/"
 CACHE_DEFAULT_TIMEOUT = int(timedelta(days=1).total_seconds())
 
 # Default cache for Superset objects
-CACHE_CONFIG: CacheConfig = {"CACHE_TYPE": "NullCache"}
+CACHE_CONFIG: CacheConfig = {
+    'CACHE_TYPE':'redis', # Use Redis
+    'CACHE_REDIS_HOST':'localhost', # Configure domain name
+    'CACHE_REDIS_PORT': 6379, # Configure port number
+    'CACHE_REDIS_URL':'redis://localhost:6379' # Configure URL
+}
 
 # Cache for datasource metadata and query results
-DATA_CACHE_CONFIG: CacheConfig = {"CACHE_TYPE": "NullCache"}
+DATA_CACHE_CONFIG: CacheConfig = {
+    'CACHE_TYPE':'redis', # Use Redis
+    'CACHE_REDIS_HOST':'localhost', # Configure domain name
+    'CACHE_REDIS_PORT': 6379, # Configure port number
+    'CACHE_REDIS_URL':'redis://localhost:6379' # Configure URL
+}
 
 # Cache for dashboard filter state (`CACHE_TYPE` defaults to `SimpleCache` when
 #  running in debug mode unless overridden)
